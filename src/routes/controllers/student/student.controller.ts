@@ -10,7 +10,6 @@ export const registerStudentController = async (req, res, next) => {
     student.password = await hashHelper.hashPassword(student.password);
     const savedStudent = (await StudentRepo.saveStudent(student)).toJSON() as Student;
     delete savedStudent.password;
-    delete savedStudent._id;
     return new SuccessResponse("success", savedStudent).send(res);
 }
 
