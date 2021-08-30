@@ -53,7 +53,7 @@ export const createAssignment = async (req: ProtectedRequest, res: Response, nex
         dueDate: date,
         subject: subjectInfo._id,
         description
-    }, subjectInfo);
+    }, subjectInfo.toJSON());
     const assigned = await AssignmentRepo.createAssignment(assignment);
     return new SuccessResponse("Success", assigned).send(res);
 }

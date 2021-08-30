@@ -15,5 +15,16 @@ export const registerStudentController = async (req, res, next) => {
 
 export const loginStudentController = async (req, res, next) => {
     req.body.user = users.STUDENT;
-    return loginController(req,res,next);
+    return loginController(req, res, next);
+}
+
+export const getDueAssignmentsController = async (req, res, next) => {
+    const {dept, sem} = req.user;
+    const assignments = await StudentRepo.getDueAssignments(dept, sem);
+    return new SuccessResponse("success", assignments).send(res);
+}
+
+export const submitAssignmentController = async (req, res, next) => {
+
+    return new SuccessResponse("success", result).send(res);
 }

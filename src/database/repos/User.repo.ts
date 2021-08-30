@@ -23,7 +23,7 @@ export abstract class UserRepo {
         const model = UserRepo.getModel(user);
         return model.findOne(
             query,
-            "email password dept name"
+            "email password dept name sem" // if sem is available fetch that
         ).lean().exec() as Promise<StudentDetailWithPass>;
     }
 
@@ -40,4 +40,5 @@ export interface StudentDetailWithPass extends Document {
     password: string;
     dept: string;
     name: string;
+    sem?: number;
 };

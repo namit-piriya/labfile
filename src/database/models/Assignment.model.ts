@@ -2,7 +2,6 @@ import {model, Schema, Types} from "mongoose";
 
 export const assignmentCollection = "assignment"
 
-
 const assignmentSchema = new Schema({
     subject: {
         type: Types.ObjectId,

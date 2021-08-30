@@ -8,7 +8,7 @@ export const loginController = async (req, res, next) => {
     const {email, password, user} = req.body;
     let userDetails = await UserRepo.checkCredentials({email}, user)
     if (!userDetails) throw new Error("User does not exist!");
-    const {name, dept, _id} = userDetails
+    const {name, dept, _id, sem = null} = userDetails
     const userVerified = await hashHelper.verifyPassword(password, userDetails.password);
     if (!userVerified) throw new Error("Email or password is incorrect");
     const tokenPayload = {
@@ -18,6 +18,7 @@ export const loginController = async (req, res, next) => {
         userType: user,
         id: _id
     } as TokenPayload;
+    if (sem) tokenPayload.sem = sem;
     const token = await jwtHelp.signToken(tokenPayload);
     return new SuccessResponse("Successfully logged in", {...tokenPayload, token}).send(res);
 }
@@ -28,4 +29,5 @@ export interface TokenPayload {
     name: string;
     dept: string;
     userType: string;
+    sem?: number;
 }

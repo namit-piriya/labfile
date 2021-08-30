@@ -17,6 +17,11 @@ const submissionSchema = new Schema({
         ref: "students",
         required: true
     },
+    assignment: {
+        type: Types.ObjectId,
+        ref: "assignments",
+        required: true
+    },
     studentName: {
         type: String,
     },

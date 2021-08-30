@@ -14,4 +14,5 @@ export class AssignmentRepo {
     public static async createAssignment(assignment: Assignment) {
         return AssignmentModel.create(assignment);
     }
+
 }

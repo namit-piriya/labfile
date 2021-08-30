@@ -14,7 +14,7 @@ class JWT {
                 data,
                 this.secretKey,
                 {
-                    expiresIn: "1h",
+                    expiresIn: "1d",
                 },
                 (err, token) => {
                     if (err) {
