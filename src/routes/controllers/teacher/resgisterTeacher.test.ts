@@ -24,3 +24,9 @@ describe("another testing test", () => {
     expect(2 + 3).toEqual(5);
   });
 });
+
+describe("another testing test", () => {
+  it("should fail", () => {
+    expect(2 + 2).toEqual(5);
+  });
+});
