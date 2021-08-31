@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm i && tsc && nodemon build/server.js ",
-    "debug": "nodemon"
+    "start": "nodemon",
+    "debug": "nodemon",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -23,9 +24,12 @@
     "nodemon": "^2.0.12",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "@types/node": "^16.4.1"
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.4.1",
+    "jest": "^27.1.0"
   }
 }
