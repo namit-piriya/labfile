@@ -26,7 +26,7 @@ describe("another testing test", () => {
 });
 
 describe("another testing test", () => {
-  it("should fail", () => {
-    expect(2 + 2).toEqual(5);
+  it("should pass", () => {
+    expect(2 + 1).toEqual(3);
   });
 });
